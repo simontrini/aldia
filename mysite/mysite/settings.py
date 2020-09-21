@@ -25,7 +25,7 @@ SECRET_KEY = 'arv$es=b-bua+gcrok)@-ygpm)y87o%l=@*3dwodm+-i!+n15c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aldia.pythonanywhere.com']
+ALLOWED_HOSTS = ['aldia.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inicio',
+    'articulos',
+    #'clientes',
+    #'productos',
+    'django_summernote',    
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ve'
 
 TIME_ZONE = 'UTC'
 
@@ -116,12 +121,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/home/simon/github/aldia/mysite/static/',
+]
 STATIC_URL = '/static/'
-
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/aldia/mysite/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/aldia/mysite/static'
-STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

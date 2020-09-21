@@ -1,0 +1,109 @@
+{% load static %}
+.text-primary {
+  color: #ffde59 !important;
+}
+.bg-primary {
+  background-color: #ffde59 !important;
+}
+
+.text-secondary {
+  color: #ff5757 !important;
+}
+
+.bg-secondary {
+  background-color: #ff5757 !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.text-light {
+  color: #a5a5af !important;
+}
+
+.bg-light {
+  background-color: #a5a5af !important;
+}
+
+.text-dark {
+  color: #015249 !important;
+}
+
+.bg-dark {
+  background-color: #015249 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+
+.listaHorizontal ul
+{
+   padding-right: 0px;
+   padding-left: 0px;
+   padding-bottom: 0px;
+   padding-top: 0px;
+   margin: 0px;
+}
+.listaHorizontal li
+{
+   list-style-type: none;
+   display: inline;
+   padding-right: 5px;
+}
+
+.listaVertical ul
+{
+    list-style: none;
+   padding-right: 0px;
+   padding-left: 0px;
+   padding-bottom: 0px;
+   padding-top: 0px;
+   margin: 0px;
+}
+.listaVertical li
+{
+   list-style-type: none;
+   display: block;
+   padding-right: 5px;
+}
+
+
+.display-5 {
+  font-size: 1.9rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+
+.linkBlanco{
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h1 {
+  font-family: 'Arvo', cursive;
+  font-size: 2vw;
+}

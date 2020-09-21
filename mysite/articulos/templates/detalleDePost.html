@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load comments %}
+{% block content %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-primary">
+        <div class="row">
+            <!-- Blog Entries Column -->
+        <div class="col-md-12 mt-3 col-lg-12 left">
+            {% autoescape off %}
+                <img class="img-thumbnail h-30" src="{{ object.image.url}}" class="" alt="{{ object.titulo }}" >
+                    <h2 class="card-title">{{ object.titulo }}</h2>
+                    <p class="card-text text-muted h6">{{ object.autor }} | {{ object.creado_on}} </p>
+                    <p class="card-text">{{object.contenido }}</p>
+            {% endautoescape %}
+        </div>
+        </div>
+            <div class="row img-thumbnail bg-secondary">
+                        <p class="card-title text-white">Me gustaria saber cual es tu opinión sobre {{ object.titulo }} </p>
+                    </div>
+            {% get_comment_list for object as comment_list %}
+                {% for comment in comment_list %}
+                    <div class="row img-thumbnail">
+                        <p class="title">{{ comment.user_name }} : </p><br>
+                        <p class="text">{{ comment.comment }} .</p><br>
+                        <p class="text-muted">({{ comment.submit_date }})</p>
+                    </div>
+                {% endfor %}
+
+        <div class="row">
+            {% get_comment_form for object as form %}
+                <table>
+                  <form action="{% comment_form_target %}" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <tr>
+                      <td colspan="2">
+                        <input type="submit" name="submit" value="Comentar">
+                        <input type="hidden" name="next" value="/blog/{{ object.slug }}" />
+
+                      </td>
+                    </tr>
+                  </form>
+                </table>
+        </div>
+    </div>
+
+{% endblock %}

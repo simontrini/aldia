@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-primary">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 text-center">
+            <img src="{% static "imagenes/merilimpioContacto.jpg" %}" class="img-fluid img-thumbnail" alt="..">
+            <h1 class="display-4 font-weight-normal"></h1>
+            <p class="lead font-weight-normal"></p>
+        </div>
+        <div class="col-md-6 col-lg-6 text-left">
+            <ul class="list-unstyled list-inline text-center text-white">
+
+                <li >
+                    <a class="btn-floating btn-fb mx-1 text-white display-2" href="mailto:inversionesmerilimpioca@gmail.com">
+                        <i class="far fa-envelope"></i>
+                     </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1 text-white display-2" href="https://www.facebook.com/merilimpio/">
+                        <i class="fab fa-facebook">  </i>
+                     </a>
+                </li>
+                <li >
+
+                    <a class="btn-floating btn-fb mx-1 text-white display-2" href="https://www.instagram.com/merilimpio/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li >
+                    <a class="btn-floating btn-fb mx-1 text-white display-2" href="https://api.whatsapp.com/send?phone=+58 414-2218620&amp;text=Mensaje%20-%20Desde%20Web" class="elementor-button-link elementor-button elementor-size-xl" role="button">
+                        <i class="fab fa-whatsapp"></i></i>
+                     </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+{% endblock %}

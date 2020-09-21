@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block description %}
+{% endblock %}
+{% block head %}
+    <meta property="og:title" content="Al Día" />
+    <meta property="og:description" content="Al Día con las noticias" />
+{% endblock %}
+
+
+{% block content %}
+    <!--   ================================================== -->
+    {% include "carrusel.html" %}
+    {% include "cuerpo.html" %}
+    {% include "cuerpo1.html" %}
+    {% include "cuerpo2.html" %}
+    {% include "cuerpo3.html" %}
+    
+{% endblock %}
