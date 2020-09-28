@@ -1,9 +1,9 @@
 {% load static %}
 .text-primary {
-  color: #000000 !important;
+  color: #001447 !important;
 }
 .bg-primary {
-  background-color: #000000 !important;
+  background-color: #001447 !important;
 }
 
 .text-secondary {

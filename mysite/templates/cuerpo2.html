@@ -3,17 +3,24 @@
         <div class="row">
           {% for post in noticias1 %}
             <div class="col-12 col-lg-3 mt-4 card-deck"data-aos="fade-up" data-aos-delay="100">
-              <div class="card border-white">
-                <div class="card-body">
-                  <h5 class="card-title">{{ post.titulo }}</h5>
-                  <p class="card-text">{{ post.etiquetaP }} | <small class="text-muted" href="inicio/{{ post.autor.pk }}">{{ post.autor }}</small></p>
-                <a href="{% url post.autor.id %}" class="btn text-muted bg-primary ">Continúa leyendo</a>
-                
+                <div class="card border-white card-deck">
+                    <div class="card-header">
+                        <a class="text-primary" href="/{{ post.slug }}" >
+                          {{ post.titulo }}
+                        </a>
+                        <p class="card-text">
+                            {{ post.etiquetaP }} |
+                            <small >
+                                <a class="text-muted"  href="perfil_detail/{{ post.autor.pk }}" >
+                                  {{ post.autor }}
+                                </a>
+                            </small>
+                        </p>
+                    </div>
+                    <img class="card-img-bottom" src="{{ post.image.url}}" alt="{{ post.titulo }}">
                 </div>
-                <img class="card-img-bottom" src="{{ post.image.url}}" alt="{{ post.titulo }}">
-              </div>
             </div>
           {% endfor %}
      </div>
-    
+
 </div>

@@ -23,10 +23,10 @@ from inicio.views import PostDetail, perfilDetail
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', inicio.as_view(), name='inicio'), 
+    path('', inicio.as_view(), name='inicio'),
     path('articulos', include('articulos.urls')),
     path('<slug:slug>/', PostDetail.as_view(), name='post_detail'),
-    #path('perfil_detail/<pk>', perfilDetail.as_view(), name='perfil_detail'),
+    path('perfil_detail/<pk>', perfilDetail.as_view(), name='perfil_detail'),
     path('perfil_detail/<int:pk>/', perfilDetail.as_view(), name='perfil_detail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

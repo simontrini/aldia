@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- START THE FEATURETTES -->
+ {% autoescape off %}
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3">
+    <div class="col-md-12  mt-4">
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">{{ object.user.name }} <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">{{post.contenido }}</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image  rounded-circle img-fluid mx-auto" src="{{ object.image.url}}" alt="{{ post.titulo  }}">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+    </div>
+ {% endautoescape %}
+        <!-- /END THE FEATURETTES -->
+        <div>
+            {% include "cuerpo2.html" %}
+        </div>
+    </div>
+
+
+
+{% endblock %}
