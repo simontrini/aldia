@@ -10,11 +10,12 @@
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">{{ object.user.name }} <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">{{post.contenido }}</p>
+            <h2 class="featurette-heading">{{ object.user.get_full_name }}</h2>
+            <p class="lead">{{ object.bio }} </p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img class="featurette-image  rounded-circle img-fluid mx-auto" src="{{ object.image.url}}" alt="{{ post.titulo  }}">
+            <img class="featurette-image img-thumbnail img-fluid mx-auto" src="{{ object.image.url}}" alt="{{ object.user.get_full_name  }}">
+            <span class="text-muted">...{% include "redes.html" %}</span>
           </div>
         </div>
 

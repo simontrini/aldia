@@ -35,12 +35,17 @@ class PostDetail(generic.DetailView):
 class perfilDetail(generic.DetailView):
     model = perfil
     template_name = 'perfilDetalle.html'
-    queryset = perfil.objects.filter(pk='1')
+    #queryset = perfil.objects.filter(pk='1')
+    print("perfilDetail")
     def get_context_data(self, **kwargs):
         context = super(perfilDetail, self).get_context_data(**kwargs)
         context['noticias1'] = Post.objects.filter(status=1).order_by('-creado_on')
-
-    #return context
+        context['usuario'] = perfil.objects.filter(pk=1)
+        #print(context['usuario'][0].bio)
+        #print(context['usuario'][0].user.get_full_name())
+        #first_name = <django.db.models.query_utils.DeferredAttribute object>
+            #|  get_full_name        
+        return context
 
     #def get_context_data(self, **kwargs):
         #context = super(PostDetail, self).get_context_data(**kwargs)

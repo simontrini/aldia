@@ -1,10 +1,10 @@
 {% load static %}
-<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center bg-primary"
-  style=" background-image: url("{% static "imagenes/Tertulia.jpg" %}");
-  background-repeat: no-repeat; background-size: cover;">
-     <img class="rounded mx-auto d-block " style="height: 10rem;" src="{% static "imagenes/Tertulia.jpg" %}" alt="Tertulia">
-
-
+<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"
+  style="background-image: url({% static "imagenes/TertuliaBg.jpg" %});
+  background-repeat: no-repeat; background-size: 99% 100%;">
+     <img class="rounded mx-auto d-block " 
+        style="height: 10rem;" 
+        src="{% static "imagenes/Tertulia.jpg" %}" alt="Tertulia">
 </div>
 <div class="container-fluid">
         {% include "navbar.html" %}
