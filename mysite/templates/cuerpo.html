@@ -1,12 +1,14 @@
 {% load static %}
 <div class="position-relative mt-4">
-        
+
         <div class="row">
         {% autoescape off %}
           {% for post in noticias1|slice:":3" %}
               <div class="col-md-3 col-lg-4 mt-4 card-deck" data-aos="fade-up" data-aos-delay="100">
                         <div class="card  border-light " >
-                            <img class="img-thumbnail " src="{{ post.image.url}}" class="" alt="{{ post.titulo }}" >
+                            {% if post.image %}
+                                <img class="img-thumbnail " src="{{ post.image.url}}" class="" alt="{{ post.titulo }}" >
+                            {% endif %}
                             <div class="card-body">
                                 <h2 class="card-title">{{ post.titulo }}</h2>
                                 <p class="card-text text-muted h6"> {{ post.creado_on}} </p>
@@ -14,7 +16,7 @@
                                 <a href="{{ post.slug }}" class="btn text-muted bg-primary ">Continúa leyendo</a>
                             </div>
                             <div class="card-footer">
-                              <p class="card-text">{{ post.etiquetaP }} | 
+                              <p class="card-text">{{ post.etiquetaP }} |
                                 <small >
                                 <a class="text-muted"  href="/perfil_detail/{{ post.autor.pk }}" >
                                   {{ post.autor.get_full_name  }}
@@ -26,6 +28,6 @@
               </div>
             {% endfor %}
         {% endautoescape %}
-        </div>    
-    
+        </div>
+
 </div>

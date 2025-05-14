@@ -14,12 +14,22 @@
               <div class="mb-1 text-muted">{{ post.creado_on}}</div>
               <p class="card-text mb-auto">{{post.contenido|truncatewords_html:70 }}</p>
               <a href="{{ post.slug }}">Continúa leyendo</a>
+              <p class="card-text">{{ post.etiquetaP }} |
+                                <small >
+                                <a class="text-muted"  href="/perfil_detail/{{ post.autor.pk }}" >
+                                  {{ post.autor.get_full_name  }}
+                                </a>
+                            </small>
+                              </p>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" style="width: 30rem;" src="{{ post.image.url}}" alt="{{ post.titulo }}">
+             {% if post.image %}
+                <img class="card-img-right flex-auto d-none d-md-block" style="width: 30rem;" src="{{ post.image.url}}" alt="{{ post.titulo }}">
+
+             {% endif %}
           </div>
         </div>
       {% endfor %}
       {% endautoescape %}
     </div>
-    
+
 </div>

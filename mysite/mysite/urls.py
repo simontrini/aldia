@@ -14,11 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from inicio.views import inicio
 from django.conf import settings
 from django.conf.urls.static import static
 from inicio.views import PostDetail, perfilDetail
+
+#from django.views.generic import TemplateView
+
+#urlpatterns = [
+#    path('', TemplateView.as_view(template_name='default_welcome.html')),  # Crea un template personalizado
+#    path('admin/', admin.site.urls),
+    # ... otras URLs
+#]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +36,8 @@ urlpatterns = [
     path('<slug:slug>/', PostDetail.as_view(), name='post_detail'),
     path('perfil_detail/<pk>', perfilDetail.as_view(), name='perfil_detail'),
     path('perfil_detail/<int:pk>/', perfilDetail.as_view(), name='perfil_detail'),
+    #url(r'^comments/', include('django_comments.urls')),
+    re_path(r'^comments/', include('django_comments.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #+  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

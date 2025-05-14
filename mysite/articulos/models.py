@@ -26,7 +26,7 @@ class perfil(models.Model):
     image = models.ImageField(upload_to="articulos", null=True, blank=True,
         verbose_name="Imagen")
     telefono = models.CharField(max_length=200)
-    
+
 class etiquetaP(models.Model):
     texto = models.CharField(max_length=200)
     #tipo = models.IntegerField(choices=RED, default=0)
@@ -37,6 +37,7 @@ class Post(models.Model):
     titulo = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     autor = models.ForeignKey(User, on_delete= models.CASCADE,related_name='+')
+    #perfil = models.ForeignKey(perfil, on_delete= models.CASCADE,related_name='+')
     etiquetaP = models.ForeignKey(etiquetaP, on_delete= models.CASCADE, verbose_name="Etiqueta Principal",default=0)
     subido_on = models.DateTimeField(auto_now= True)
     contenido = models.TextField()
