@@ -1,0 +1,20 @@
+{% load comments %}
+<div class="row img-thumbnail bg-secondary">
+    <small><p class="card-title text-white">Nos gustaria saber cual es tu opinión sobre {{ post.titulo }}. Tertulia abierta</p> </small>
+</div>
+<div class="row img-thumbnail">
+    <ul class="list">
+    {% get_comment_list for post as comment_list %}
+        {% for comment in comment_list %}
+                <li class="media">
+                    <small>
+                    <p class="text-muted d-inline"> **. </p>
+                    <p class="title d-inline">{{ comment.user_name }} : </p>
+                    <p class="text d-inline">{{ comment.comment }} .</p>
+                    <p class="text-muted d-inline">({{ comment.submit_date }}) </p>
+                    </small>
+                 </li>
+        {% endfor %}
+    </ul>
+
+</div>

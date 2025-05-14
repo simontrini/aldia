@@ -1,0 +1,35 @@
+{% load comments %}
+<div class="row img-thumbnail">
+            {% get_comment_form for post as form %}
+                <form action="{% comment_form_target %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                          <label class="sr-only" for="id_name">Nombre:</label>
+                          <input type="text" class="form-control mb-2" id="id_name" placeholder="Nombre:" name="name" maxlength="50" required>
+                        </div>
+                        <div class="col-auto">
+                            <label class="sr-only" for="id_email">email</label>
+                            <input type="email" class="form-control" id="id_email" placeholder="email" name="email" maxlength="50" required>
+                        </div>
+                        <div class="col-auto">
+                            <label class="sr-only" for="id_email">url</label>
+                            <input type="text" class="form-control" id="id_url" placeholder="Web" name="url" maxlength="50" >
+                        </div>
+                        <div class="col-12">
+                            <label class="sr-only" for="id_comment">Comentario:</label>
+                            <input type="textarea" class="form-control" id="id_comment" placeholder="Comentario:" name="comment" rows="10" maxlength="3000" id="id_comment" cols="40" required>
+                        </div>
+                        <div class="col-auto">
+                          <input class="btn bg-secondary text-white mb-2" type="submit" name="submit" value="Comentar">
+                          <input type="hidden" name="next" value=/{{ post.slug }} />
+                        </div>
+                      </div>
+                      <label class="d-none" for="id_honeypot">Si introduce algo en este campo su comentario será tratado como spam:</label>
+                      <input class="d-none" type="text" name="honeypot" id="id_honeypot">
+                      <input type="hidden" name="content_type" value="{{ form.content_type.value }}" id="id_content_type">
+                      <input type="hidden" name="object_pk" value="{{ form.object_pk.value }}" id="id_object_pk">
+                      <input type="hidden" name="timestamp" value="{{ form.timestamp.value }}" id="id_timestamp">
+                      <input type="hidden" name="security_hash" value="{{ form.security_hash.value }}" id="id_security_hash">
+                </form>
+</div>

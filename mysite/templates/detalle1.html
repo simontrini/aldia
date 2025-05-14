@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3">
+        <div class="row">
+            <div class="card col-md-12 mt-3 col-lg-12 center">
+            {% autoescape off %}
+                {% if post.image %}
+                    <img class="img-thumbnail card-img-top center" src="{{ post.image.url}}" style="width: 40rem"; alt="{{ post.titulo }}" >
+                {% endif %}
+                    <h2 class="card-title center">{{ post.titulo }}</h2>
+                    <p class="card-text text-muted h6">
+                        <a class="text-muted"  href="/perfil_detail/{{ post.autor.pk }}" >
+                            <strong class="d-inline-block mb-2 text-primary">{{ post.autor.get_full_name  }}</strong>
+                        </a>
+                        | {{ post.creado_on}} </p>
+                    <p class="card-text">{{post.contenido }}</p>
+            {% endautoescape %}
+            </div>
+
+        </div>
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3">
+            {% include "listaDeComentarios.html" %}
+            {% include "formularioDeComentarios.html" %}
+        </div>
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3">
+
+        </div>
+        {% include "cuerpo2.html" %}
+    </div>
+
+{% endblock %}
